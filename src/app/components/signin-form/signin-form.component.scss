@@ -1,0 +1,26 @@
+.form-card {
+  max-width: 400px;
+}
+
+.signin-form {
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+mat-card-title-group {
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+mat-form-field{
+  padding: 12px;
+}
