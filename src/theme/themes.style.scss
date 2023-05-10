@@ -1,5 +1,53 @@
-html,body{
-  height: 100%;
-  width: auto;
-  display: block;
+@use "@angular/material" as mat;
+@include mat.core();
+//orderBy -> "default", "tint", "shade", "texto".
+$my-primary: mat.define-palette(mat.$blue-palette, 700, 500, 500);
+$my-accent: mat.define-palette(mat.$blue-palette, A200, A100, A400);
+
+// The "warn" palette is optional and defaults to red if not specified.
+$my-warn: mat.define-palette(mat.$red-palette);
+
+$my-ligth-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+      warn: $my-warn,
+    ),
+    density:0,
+  )
+);
+
+$my-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+      warn: $my-warn,
+      ),
+    // Only include `typography` and `density` in the default dark theme.
+    typography: mat.define-typography-config(),
+    density: 0,
+
+  )
+);
+
+
+
+// Apply the dark theme by default
+@include mat.core-theme($my-dark-theme);
+@include mat.all-component-themes($my-dark-theme);
+// @include mat.strong-focus-indicators-theme($my-dark-theme);
+// Apply the light theme only when the user prefers light themes.
+@media (prefers-color-scheme: light) {
+  // Use the `-color` mixins to only apply color styles without reapplying the same
+  // typography and density styles.
+  @include mat.core-color($my-ligth-theme);
+  @include mat.all-component-themes($my-ligth-theme);
 }
+
+.active-link{
+  color: mat.get-color-from-palette($my-primary, 'default-contrast') !important;
+  background-color: mat.get-color-from-palette($my-primary, 700) !important;
+}
+

@@ -1,0 +1,35 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" >
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="example-app-name">Responsive App</h1>
+  </mat-toolbar>
+
+  <mat-sidenav-container  class="example-sidenav-container"  [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav opened="true" [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <ng-container *ngFor="let route of this.routes.children">
+        <mat-nav-list *ngIf="route.path">
+          <!-- <ng-container *ngIf="!route.children"> -->
+            <mat-list-item [routerLink]="[ route.path ]" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+              <mat-icon matListItemIcon >{{route.icon}}</mat-icon>
+              <h3>{{route.path | titlecase}}</h3>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          <!-- </ng-container> -->
+          <!-- <ng-container *ngIf="route.children">
+            <mat-list-item>
+              <mat-icon matListItemIcon >home</mat-icon>
+              <span matListItemTitle>Title</span>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </ng-container> -->
+        </mat-nav-list>
+      </ng-container>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet id="sideContent"></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+<!-- [routerLink]="[ '/panel/' + section.url ]" routerDirection="forward" routerLinkActive='section-active-link' [routerLinkActiveOptions]="{exact: true}" -->
