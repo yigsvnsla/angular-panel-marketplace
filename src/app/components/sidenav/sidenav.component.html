@@ -1,9 +1,22 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" >
+
   <mat-toolbar color="primary" class="example-toolbar">
-    <button mat-icon-button (click)="snav.toggle()">
+    <button mat-icon-button (click)="snav.toggle()" class="example-icon" aria-label="Example icon-button with menu icon">
       <mat-icon>menu</mat-icon>
     </button>
-    <h1 class="example-app-name">Responsive App</h1>
+    <span>My App</span>
+    <span class="example-spacer"></span>
+    <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>search</mat-icon>
+    </button> -->
+    <button mat-icon-button  class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon matBadge="8" matBadgePosition="before" matBadgeColor="accent">notifications</mat-icon>
+    </button>
+    <!-- <span>Hi' Jesus</span> -->
+    <button mat-icon-button  class="example-icon avatar-button" aria-label="Example icon-button with share icon">
+      <!-- <mat-icon >share</mat-icon> -->
+    </button>
+
   </mat-toolbar>
 
   <mat-sidenav-container  class="example-sidenav-container"  [style.marginTop.px]="mobileQuery.matches ? 56 : 0">

@@ -8,8 +8,12 @@
   right: 0;
 }
 
-mat-sidenav{
+mat-sidenav {
   width: 250px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
 }
 
 .example-is-mobile .example-toolbar {
@@ -32,4 +36,15 @@ h1.example-app-name {
   /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
      `<body>` to be our scrolling element for mobile layouts. */
   flex: 1 0 auto;
+}
+
+.example-icon {
+  // margin: 6px;
+}
+
+.avatar-button {
+  background-image: url(https://placehold.co/64);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain
 }

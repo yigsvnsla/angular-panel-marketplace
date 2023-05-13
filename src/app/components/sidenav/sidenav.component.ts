@@ -9,6 +9,7 @@ import { MatListModule } from "@angular/material/list";
 import { MediaMatcher } from '@angular/cdk/layout';
 import { RouterModule } from '@angular/router';
 import { MatDividerModule } from '@angular/material/divider';
+import {MatBadgeModule} from '@angular/material/badge';
 @Component({
   selector: 'app-sidenav',
   standalone: true,
@@ -23,6 +24,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatIconModule,
     MatDividerModule,
     RouterModule,
+    MatBadgeModule,
   ],
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss']
